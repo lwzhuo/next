@@ -12,13 +12,14 @@ public class Convert {
 			BufferedImage bi = (BufferedImage)ImageIO.read(file);
 			int height = bi.getHeight();
 			int width = bi.getWidth();
-//			System.out.println(height+" "+width+" "+bi.getColorModel());
 			for(int y=0;y<height-1;y++){
 				for(int x=0;x<width-1;x++)
-				System.out.print(bi.getRGB(x,y)==-1?"  ":"##");
-				System.out.println();
+					if(y%3==0&&x%3==0){
+						System.out.print(bi.getRGB(x,y)==-1?"  ":"\u2588\u2588");
+					}
+				if(y%3==0)
+					System.out.println();
 			}
-			
 		}catch(IOException e){
 			e.printStackTrace();
 		}
